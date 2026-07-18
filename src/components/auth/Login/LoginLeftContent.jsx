@@ -3,7 +3,7 @@ import React from 'react'
 const LoginLeftContent = () => {
   return (
     <div className='w-full h-full'>
-        <img className='w-full h-full object-cover' src="src/assets/images/loginImg.png" alt="Starry night themed background" />
+        <img className='w-full h-full object-cover' src="src/assets/images/HNhFGsebcAEEpnH.jpeg" alt="Starry night themed background" />
     </div>
   )
 }
