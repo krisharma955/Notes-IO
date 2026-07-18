@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const FilterTabs = () => {
-
-  const [activeTab, setActiveTab] = useState('all')
+/**
+ * FilterTabs
+ *
+ * Props:
+ *   activeTab   — 'all' | 'pinned' | 'archived'
+ *   onTabChange — callback(tabId: string)
+ */
+const FilterTabs = ({ activeTab = 'all', onTabChange }) => {
 
   const tabs = [
     { id: 'all', label: 'All' },
@@ -15,7 +20,7 @@ const FilterTabs = () => {
       {tabs.map((tab) => (
         <button
           key={tab.id}
-          onClick={() => setActiveTab(tab.id)}
+          onClick={() => onTabChange && onTabChange(tab.id)}
           className={`text-[18px] px-4 py-1.5 rounded-full font-medium transition-colors ${
             activeTab === tab.id
               ? 'bg-emerald-950 text-emerald-400'

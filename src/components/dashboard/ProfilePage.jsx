@@ -1,8 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Background from '../auth/Background'
 import 'remixicon/fonts/remixicon.css'
+import { useAuth } from '../../context/AuthContext'
 
 const ProfilePage = () => {
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
+
   return (
     <div className='relative w-screen h-screen overflow-hidden bg-black'>
 
@@ -27,18 +37,21 @@ const ProfilePage = () => {
             <div className='flex flex-col gap-2'>
               <label className='text-sm font-medium text-white'>Name</label>
               <p className='bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white text-sm'>
-                Krish Sharma
+                {user?.name || '—'}
               </p>
             </div>
 
             <div className='flex flex-col gap-2'>
               <label className='text-sm font-medium text-white'>Email</label>
               <p className='bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-white text-sm'>
-                krish@example.com
+                {user?.username || '—'}
               </p>
             </div>
 
-            <button className='flex items-center justify-center gap-2 border border-zinc-800 rounded-lg py-2.5 text-white hover:bg-red-600 transition-colors mt-2'>
+            <button
+              onClick={handleLogout}
+              className='flex items-center justify-center gap-2 border border-zinc-800 rounded-lg py-2.5 text-white hover:bg-red-600 transition-colors mt-2'
+            >
               <i className="ri-logout-box-line"></i>
               Logout
             </button>

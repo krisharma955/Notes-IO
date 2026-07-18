@@ -1,7 +1,7 @@
 import React from 'react'
 import 'remixicon/fonts/remixicon.css'
 
-const EmptyState = ({ type = 'notes' }) => {
+const EmptyState = ({ type = 'notes', onNewNoteClick }) => {
 
   const content = {
     notes: {
@@ -32,7 +32,7 @@ const EmptyState = ({ type = 'notes' }) => {
       <h3 className='text-white font-medium text-lg'>{current.title}</h3>
       <p className='text-zinc-500 text-sm mt-2'>{current.body}</p>
       {current.showCta && (
-        <button className='mt-6 flex items-center gap-1.5 bg-emerald-400 hover:bg-emerald-300 text-black font-medium rounded-lg px-4 py-2.5 text-sm transition-colors'>
+        <button onClick={onNewNoteClick} className='mt-6 flex items-center gap-1.5 bg-emerald-400 hover:bg-emerald-300 text-black font-medium rounded-lg px-4 py-2.5 text-sm transition-colors'>
           <i className="ri-add-line text-base"></i>
           New note
         </button>

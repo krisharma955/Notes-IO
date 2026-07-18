@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'remixicon/fonts/remixicon.css'
 
-const Pagination = ({ totalPages = 3 }) => {
-
-  const [currentPage, setCurrentPage] = useState(1)
+/**
+ * Pagination
+ *
+ * Props:
+ *   currentPage  — 1-indexed current page number (for display)
+ *   totalPages   — total number of pages from the API
+ *   onPageChange — (page: number) => void  — called with new 1-indexed page
+ */
+const Pagination = ({ currentPage = 1, totalPages = 1, onPageChange }) => {
 
   const goPrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1)
+    if (currentPage > 1) onPageChange && onPageChange(currentPage - 1)
   }
 
   const goNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1)
+    if (currentPage < totalPages) onPageChange && onPageChange(currentPage + 1)
   }
 
   return (

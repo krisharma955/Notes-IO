@@ -1,10 +1,41 @@
 import React, { useState } from 'react'
 import 'remixicon/fonts/remixicon.css'
+import apiClient from '../../api/client'
 
-const NoteModal = ({ onClose, existingNote = null }) => {
+const NoteModal = ({ onClose, existingNote = null, onSave }) => {
 
   const [title, setTitle] = useState(existingNote?.title || '')
   const [content, setContent] = useState(existingNote?.content || '')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleSave = async () => {
+    if (!title.trim()) {
+      setError('Title is required.')
+      return
+    }
+    setError('')
+    setLoading(true)
+    try {
+      let res
+      if (existingNote) {
+        // PATCH /api/notes/{id}
+        res = await apiClient.patch(`/api/notes/${existingNote.id}`, { title, content })
+      } else {
+        // POST /api/notes
+        res = await apiClient.post('/api/notes', { title, content })
+      }
+      onSave && onSave(res.data)
+    } catch (err) {
+      setError(
+        err.response?.data?.message ||
+        err.response?.data ||
+        'Failed to save note. Please try again.'
+      )
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <div className='fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4'>
@@ -37,6 +68,10 @@ const NoteModal = ({ onClose, existingNote = null }) => {
           />
         </div>
 
+        {error && (
+          <p className='text-red-400 text-sm mt-3 text-center'>{error}</p>
+        )}
+
         <div className='flex justify-end gap-3 mt-6'>
           <button
             onClick={onClose}
@@ -45,9 +80,11 @@ const NoteModal = ({ onClose, existingNote = null }) => {
             Cancel
           </button>
           <button
+            onClick={handleSave}
+            disabled={loading}
             className='px-5 py-2 rounded-lg text-sm bg-emerald-400 hover:bg-emerald-300 text-black font-medium transition-colors'
           >
-            {existingNote ? 'Save changes' : 'Create note'}
+            {loading ? 'Saving...' : existingNote ? 'Save changes' : 'Create note'}
           </button>
         </div>
 

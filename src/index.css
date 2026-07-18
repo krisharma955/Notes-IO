@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* Prevent the browser's default white background from showing below or around
+   any component. Every page in NotesIO uses a black background, so this global
+   rule eliminates the white gap that appears when content doesn't fill the full
+   viewport height. */
+html,
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+}
