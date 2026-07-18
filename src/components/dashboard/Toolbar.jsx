@@ -13,7 +13,7 @@ import 'remixicon/fonts/remixicon.css'
  */
 const Toolbar = ({ keyword = '', onKeywordChange, sort = 'newest', onSortChange, onNewNoteClick }) => {
   return (
-    <div className='flex gap-3 px-10 mb-6'>
+    <div className='flex flex-col sm:flex-row gap-3 px-5 md:px-10 mb-6'>
 
       <div className='relative flex-1'>
         <i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>

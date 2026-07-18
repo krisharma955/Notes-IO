@@ -15,13 +15,13 @@ const Header = () => {
   const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
   return (
-    <div className='flex items-start justify-between px-10 pt-10 pb-6'>
+    <div className='flex flex-col md:flex-row items-start md:items-center justify-between px-5 md:px-10 pt-8 md:pt-10 pb-6 gap-6 md:gap-0'>
       
       <div>
-        <h2 className='font-serif italic text-5xl font-semibold leading-none'>
+        <h2 className='font-serif italic text-4xl md:text-5xl font-semibold leading-none'>
           <span className="text-gray-200">Notes</span><span className="text-emerald-400">IO</span>
         </h2>
-        <p className='text-gray-500 text-[18px] italic mt-2 max-w-sm leading-relaxed'>
+        <p className='text-gray-500 text-sm md:text-[18px] italic mt-2 max-w-sm leading-relaxed'>
           "{todayQuote}"
         </p>
       </div>

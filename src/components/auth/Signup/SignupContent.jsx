@@ -35,7 +35,7 @@ const SignupContent = () => {
   }
 
   return (
-    <div className='h-full w-full flex items-center justify-center px-10 overflow-y-auto py-10'>
+    <div className='h-full w-full flex items-center justify-center px-6 md:px-10 overflow-y-auto py-10'>
       <div className='w-full max-w-sm'>
 
         <div className='mb-8'>

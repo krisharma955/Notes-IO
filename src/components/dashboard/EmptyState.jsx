@@ -27,7 +27,7 @@ const EmptyState = ({ type = 'notes', onNewNoteClick }) => {
   const current = content[type]
 
   return (
-    <div className='flex flex-col items-center justify-center text-center py-20 px-10'>
+    <div className='flex flex-col items-center justify-center text-center py-20 px-6 md:px-10'>
       <i className={`${current.icon} text-4xl text-zinc-700 mb-4`}></i>
       <h3 className='text-white font-medium text-lg'>{current.title}</h3>
       <p className='text-zinc-500 text-sm mt-2'>{current.body}</p>

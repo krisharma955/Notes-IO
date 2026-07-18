@@ -23,7 +23,7 @@ const NotesGrid = ({ notes = [], loading = false, emptyType = 'notes', onPin, on
   }
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 px-10'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 px-5 md:px-10'>
       {notes.map((note) => (
         <NoteCard
           key={note.id}

@@ -20,7 +20,7 @@ const ProfilePage = () => {
         <Background />
       </div>
 
-      <div className='relative z-10 h-full w-full flex items-center justify-center px-10'>
+      <div className='relative z-10 h-full w-full flex items-center justify-center px-6 md:px-10'>
         <div className='w-full max-w-sm'>
 
           <div className='mb-8'>

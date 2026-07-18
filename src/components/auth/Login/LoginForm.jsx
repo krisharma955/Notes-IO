@@ -12,10 +12,10 @@ const LoginForm = () => {
       </div>
 
       <div className='relative z-10 flex items-stretch h-screen'>
-        <div className='w-2/3 h-full'>
+        <div className='hidden md:block md:w-1/2 lg:w-2/3 h-full'>
           <LoginLeftContent />
         </div>
-        <div className='w-1/3 h-full'>
+        <div className='w-full md:w-1/2 lg:w-1/3 h-full'>
           <LoginRightContent />
         </div>
       </div>
