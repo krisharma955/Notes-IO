@@ -1,9 +1,10 @@
 import React from 'react'
+import loginBg from '../../../assets/images/HNhFGsebcAEEpnH.jpeg'
 
 const LoginLeftContent = () => {
   return (
     <div className='w-full h-full'>
-        <img className='w-full h-full object-cover' src="src/assets/images/HNhFGsebcAEEpnH.jpeg" alt="Starry night themed background" />
+        <img className='w-full h-full object-cover' src={loginBg} alt="Starry night themed background" />
     </div>
   )
 }
