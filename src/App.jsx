@@ -6,8 +6,8 @@ import Dashboard from './components/dashboard/Dashboard'
 const App = () => {
   return (
     <div >
-      {/* <LoginForm /> */}
-      {/* <SignupForm />  */}
+      <LoginForm />
+      <SignupForm /> 
       <Dashboard />
     </div>
   )
